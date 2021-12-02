@@ -1,0 +1,28 @@
+import 'package:challenge_cubos/themes/colors.dart';
+import 'package:flutter/material.dart';
+
+import 'home_page.dart';
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        textTheme: const TextTheme(
+            headline1: TextStyle(
+                color: ThemeColors.gray1,
+                fontWeight: FontWeight.w600,
+                fontSize: 18,
+                fontStyle: FontStyle.normal,
+                fontFamily: 'Montserrat'),
+            headline2: TextStyle()),
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(),
+    );
+  }
+}
