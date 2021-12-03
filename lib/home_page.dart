@@ -1,4 +1,8 @@
+import 'package:challenge_cubos/components/movie_tab_bar.dart';
 import 'package:flutter/material.dart';
+
+import 'components/search_movie_bar.dart';
+import 'controller/home_controller.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
@@ -19,13 +23,20 @@ class _MyHomePageState extends State<MyHomePage> {
         bottom: true,
         top: true,
         child: Column(
-          children: const [
-            Text('Filmes',
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('Filmes',
                 style: TextStyle(
                     fontSize: 18,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w600,
                     fontStyle: FontStyle.normal)),
+            const SearchMovieBar(),
+            Wrap(
+              children: List.generate(movieGender.length,
+                  (index) => MovieTabBar(movieGender: movieGender[index])),
+            ),
           ],
         ),
       ),
