@@ -1,3 +1,4 @@
+import 'package:challenge_cubos/components/movie.card.dart';
 import 'package:challenge_cubos/components/movie_tab_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -26,17 +32,16 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Filmes',
-                style: TextStyle(
-                    fontSize: 18,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w600,
-                    fontStyle: FontStyle.normal)),
+            Text('Filmes', style: Theme.of(context).textTheme.headline1),
             const SearchMovieBar(),
             Wrap(
               children: List.generate(movieGender.length,
                   (index) => MovieTabBar(movieGender: movieGender[index])),
             ),
+            const SizedBox(
+              height: 16,
+            ),
+            const MovieCard(),
           ],
         ),
       ),

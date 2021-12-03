@@ -18,28 +18,22 @@ class _SearchMovieBarState extends State<SearchMovieBar> {
       width: double.infinity,
       height: 60,
       child: Row(
-        children: const [
-          Icon(
+        children: [
+          const Icon(
             Icons.search,
             size: 30,
             color: ThemeColors.gray2,
           ),
-          SizedBox(
+          const SizedBox(
             width: 16,
           ),
           SizedBox(
             width: 280,
             height: 40,
             child: TextField(
-              decoration: InputDecoration(
-                  hintText: 'Pesquise filmes',
-                  hintStyle: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    color: ThemeColors.gray2,
-                  )),
-            ),
+                decoration: InputDecoration(
+                    hintText: 'Pesquise filmes',
+                    hintStyle: Theme.of(context).textTheme.headline2)),
           ),
         ],
       ),
