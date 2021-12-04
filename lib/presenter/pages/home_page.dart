@@ -1,9 +1,8 @@
-import 'package:challenge_cubos/components/movie.card.dart';
-import 'package:challenge_cubos/components/movie_tab_bar.dart';
+import 'package:challenge_cubos/presenter/components/movie.card.dart';
+import 'package:challenge_cubos/presenter/components/movie_tab_bar.dart';
+import 'package:challenge_cubos/presenter/components/search_movie_bar.dart';
+import 'package:challenge_cubos/presenter/controller/home_controller.dart';
 import 'package:flutter/material.dart';
-
-import '../components/search_movie_bar.dart';
-import '../controller/home_controller.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({

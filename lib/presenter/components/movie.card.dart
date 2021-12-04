@@ -1,5 +1,4 @@
-import 'package:challenge_cubos/components/ui/custom_box.dart';
-import 'package:challenge_cubos/pages/movie_details_page.dart';
+import 'package:challenge_cubos/presenter/pages/movie_details_page.dart';
 import 'package:flutter/material.dart';
 
 class MovieCard extends StatelessWidget {

@@ -1,8 +1,7 @@
-import 'package:challenge_cubos/themes/colors.dart';
+import 'package:challenge_cubos/presenter/pages/home_page.dart';
+
 import 'package:challenge_cubos/themes/theme.dart';
 import 'package:flutter/material.dart';
-
-import 'pages/home_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
