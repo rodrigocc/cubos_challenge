@@ -6,4 +6,6 @@ class ThemeColors {
   static const gray2 = Color(0xFF5E6770);
   static const gray3 = Color(0xFF868E96);
   static const gray8 = Color(0xFFF1F3F5);
+  static const gray9 = Color(0xFFF5F5F5);
+  static const gray10 = Color(0xFF6D7070);
 }

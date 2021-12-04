@@ -2,8 +2,8 @@ import 'package:challenge_cubos/components/movie.card.dart';
 import 'package:challenge_cubos/components/movie_tab_bar.dart';
 import 'package:flutter/material.dart';
 
-import 'components/search_movie_bar.dart';
-import 'controller/home_controller.dart';
+import '../components/search_movie_bar.dart';
+import '../controller/home_controller.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
@@ -41,7 +41,16 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(
               height: 16,
             ),
-            const MovieCard(),
+            Expanded(
+              child: ListView.separated(
+                  itemBuilder: (context, index) {
+                    return const MovieCard();
+                  },
+                  separatorBuilder: (context, index) {
+                    return const Divider();
+                  },
+                  itemCount: 10),
+            )
           ],
         ),
       ),
