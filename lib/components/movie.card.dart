@@ -1,19 +1,24 @@
+import 'package:challenge_cubos/components/ui/custom_box.dart';
 import 'package:challenge_cubos/pages/movie_details_page.dart';
 import 'package:flutter/material.dart';
 
 class MovieCard extends StatelessWidget {
-  const MovieCard({Key? key}) : super(key: key);
+  final double? height;
+  const MovieCard({Key? key, this.height}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const MovieDetailsPage()));
+        height ??
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const MovieDetailsPage()));
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
-        height: 470,
+        height: height ?? 470,
         width: double.infinity,
         decoration: BoxDecoration(
           color: Colors.grey,
@@ -33,7 +38,7 @@ class MovieCard extends StatelessWidget {
             Text(
               'Ação - Aventura',
               style: Theme.of(context).textTheme.subtitle2,
-            )
+            ),
           ],
         ),
       ),
