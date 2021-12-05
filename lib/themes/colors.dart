@@ -9,4 +9,5 @@ class ThemeColors {
   static const gray9 = Color(0xFFF5F5F5);
   static const gray10 = Color(0xFF6D7070);
   static const boxColor = Color(0xFFE9ECEF);
+  static const borderColor = Color(0xFFFAFAFA);
 }

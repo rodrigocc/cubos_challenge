@@ -34,6 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Text('Filmes', style: Theme.of(context).textTheme.headline1),
             const SearchMovieBar(),
             Wrap(
+              spacing: 12,
               children: List.generate(movieGender.length,
                   (index) => MovieTabBar(movieGender: movieGender[index])),
             ),

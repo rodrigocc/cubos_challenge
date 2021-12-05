@@ -15,8 +15,7 @@ class MovieTabBarState extends State<MovieTabBar> {
     return GestureDetector(
       onTap: () {},
       child: Container(
-          padding: const EdgeInsets.fromLTRB(12, 4, 12, 4),
-          height: 40,
+          padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
           decoration: BoxDecoration(
               color: ThemeColors.green1,
               borderRadius: BorderRadius.circular(25),

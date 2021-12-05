@@ -16,6 +16,12 @@ var theme = ThemeData(
         fontWeight: FontWeight.w400,
         fontStyle: FontStyle.normal,
         fontFamily: 'Montserrat'),
+    headline3: TextStyle(
+        color: ThemeColors.gray2,
+        fontSize: 10,
+        fontWeight: FontWeight.w400,
+        fontStyle: FontStyle.normal,
+        fontFamily: 'Montserrat'),
     subtitle1: TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.w600,
@@ -26,6 +32,13 @@ var theme = ThemeData(
     subtitle2: TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.w600,
+      fontSize: 10,
+      fontStyle: FontStyle.normal,
+      fontFamily: 'Montserrat',
+    ),
+    headline4: TextStyle(
+      color: ThemeColors.gray2,
+      fontWeight: FontWeight.w500,
       fontSize: 10,
       fontStyle: FontStyle.normal,
       fontFamily: 'Montserrat',
@@ -41,6 +54,13 @@ var theme = ThemeData(
       color: ThemeColors.gray10,
       fontWeight: FontWeight.w500,
       fontSize: 12,
+      fontStyle: FontStyle.normal,
+      fontFamily: 'Montserrat',
+    ),
+    headline5: TextStyle(
+      color: ThemeColors.gray3,
+      fontWeight: FontWeight.w600,
+      fontSize: 14,
       fontStyle: FontStyle.normal,
       fontFamily: 'Montserrat',
     ),
