@@ -13,6 +13,7 @@ class CustomAppBar extends StatelessWidget {
           Navigator.of(context).pop();
         },
         child: Container(
+          width: 100,
           padding: const EdgeInsets.fromLTRB(12.8, 8, 13, 9),
           decoration: BoxDecoration(
               color: Colors.white,
@@ -29,7 +30,10 @@ class CustomAppBar extends StatelessWidget {
               ]),
           child: Row(
             children: [
-              const Icon(Icons.arrow_left),
+              const Icon(
+                Icons.arrow_back_ios,
+                size: 15,
+              ),
               const SizedBox(
                 width: 10,
               ),

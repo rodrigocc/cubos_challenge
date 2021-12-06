@@ -65,5 +65,4 @@ var theme = ThemeData(
       fontFamily: 'Montserrat',
     ),
   ),
-  primarySwatch: Colors.blue,
 );

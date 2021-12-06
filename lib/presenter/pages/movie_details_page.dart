@@ -199,10 +199,10 @@ class MovieDetailsPage extends StatelessWidget {
                                   .textTheme
                                   .headline5!
                                   .copyWith(fontSize: 12),
-                              text: 'ORÇAMENTO:',
+                              text: 'ORÇAMENTO: ',
                               children: [
                             TextSpan(
-                              text: ' 152,000,000',
+                              text: '\$ 152,000,000',
                               style: Theme.of(context)
                                   .textTheme
                                   .subtitle1!
