@@ -3,7 +3,16 @@ import 'package:flutter/material.dart';
 
 class MovieCard extends StatelessWidget {
   final double? height;
-  const MovieCard({Key? key, this.height}) : super(key: key);
+  final String imgUrl;
+  final String title;
+  final List<String> genres;
+  const MovieCard(
+      {Key? key,
+      this.height,
+      required this.imgUrl,
+      required this.title,
+      required this.genres})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +29,16 @@ class MovieCard extends StatelessWidget {
         height: height ?? 470,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.grey,
-          borderRadius: BorderRadius.circular(10),
-        ),
+            color: Colors.grey,
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+                fit: BoxFit.cover, image: NetworkImage(imgUrl))),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
-              'CAPITÃ MARVEL',
+              title,
               style: Theme.of(context).textTheme.subtitle1,
             ),
             const SizedBox(

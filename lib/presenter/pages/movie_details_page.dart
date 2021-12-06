@@ -20,12 +20,12 @@ class MovieDetailsPage extends StatelessWidget {
               const SizedBox(
                 height: 56,
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 52),
-                child: MovieCard(
-                  height: 318,
-                ),
-              ),
+              // const Padding(
+              //   padding: EdgeInsets.symmetric(horizontal: 52),
+              //   child: MovieCard(
+              //     height: 318,
+              //   ),
+              // ),
               const SizedBox(
                 height: 32,
               ),

@@ -1,3 +1,7 @@
+import 'package:challenge_cubos/data/fetch_image.dart';
+import 'package:challenge_cubos/data/fetch_movie_usecase.dart';
+import 'package:challenge_cubos/data/models/movie_list.dart';
+import 'package:challenge_cubos/domain/usecases/fetch_image.dart';
 import 'package:challenge_cubos/presenter/components/movie.card.dart';
 import 'package:challenge_cubos/presenter/components/movie_tab_bar.dart';
 import 'package:challenge_cubos/presenter/components/search_movie_bar.dart';
@@ -14,6 +18,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final controller = HomeController(
+    FetchMovieUseCase(),
+    FetchPosterPath(),
+  );
+  List<String> movieGender = ['Ação', 'Aventura', 'Fantasia', 'Comédia'];
   @override
   void initState() {
     super.initState();
@@ -41,16 +50,25 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(
               height: 16,
             ),
-            Expanded(
-              child: ListView.separated(
-                  itemBuilder: (context, index) {
-                    return const MovieCard();
-                  },
-                  separatorBuilder: (context, index) {
-                    return const Divider();
-                  },
-                  itemCount: 10),
-            )
+            FutureBuilder<List<MovieResults>>(
+                future: controller.fetchMovieByGenrer(28),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) return CircularProgressIndicator();
+                  return Expanded(
+                    child: ListView.separated(
+                        itemBuilder: (context, index) {
+                          return MovieCard(
+                              title: snapshot.data![index].title!,
+                              genres: [],
+                              imgUrl: controller.fetchImageCard(
+                                  snapshot.data![index].posterPath!));
+                        },
+                        separatorBuilder: (context, index) {
+                          return const Divider();
+                        },
+                        itemCount: snapshot.data!.length),
+                  );
+                })
           ],
         ),
       ),
