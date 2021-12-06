@@ -6,13 +6,18 @@ class MovieCard extends StatelessWidget {
   final String imgUrl;
   final String title;
   final List<String> genres;
-  const MovieCard(
-      {Key? key,
-      this.height,
-      required this.imgUrl,
-      required this.title,
-      required this.genres})
-      : super(key: key);
+  final String overView;
+  final String originalTitle;
+
+  const MovieCard({
+    Key? key,
+    this.height,
+    required this.imgUrl,
+    required this.title,
+    required this.genres,
+    required this.overView,
+    required this.originalTitle,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,12 @@ class MovieCard extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const MovieDetailsPage()));
+                    builder: (context) => MovieDetailsPage(
+                        originalTitle: originalTitle,
+                        genres: genres,
+                        imgUrl: imgUrl,
+                        title: title,
+                        overView: overView)));
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),

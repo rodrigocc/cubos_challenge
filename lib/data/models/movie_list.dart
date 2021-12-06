@@ -43,7 +43,7 @@ class MovieResults {
   String? releaseDate;
   String? title;
   bool? video;
-  // int? voteAverage;
+  int? voteAverage;
   int? voteCount;
 
   MovieResults(
@@ -59,7 +59,7 @@ class MovieResults {
       this.releaseDate,
       this.title,
       this.video,
-      // this.voteAverage,
+      this.voteAverage,
       this.voteCount});
 
   MovieResults.fromJson(Map<String, dynamic> json) {

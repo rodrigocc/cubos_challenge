@@ -5,7 +5,20 @@ import 'package:challenge_cubos/themes/colors.dart';
 import 'package:flutter/material.dart';
 
 class MovieDetailsPage extends StatelessWidget {
-  const MovieDetailsPage({Key? key}) : super(key: key);
+  final String imgUrl;
+  final String title;
+  final List<String> genres;
+  final String overView;
+  final String originalTitle;
+
+  const MovieDetailsPage({
+    Key? key,
+    required this.imgUrl,
+    required this.title,
+    required this.genres,
+    required this.overView,
+    required this.originalTitle,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +33,17 @@ class MovieDetailsPage extends StatelessWidget {
               const SizedBox(
                 height: 56,
               ),
-              // const Padding(
-              //   padding: EdgeInsets.symmetric(horizontal: 52),
-              //   child: MovieCard(
-              //     height: 318,
-              //   ),
-              // ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 52),
+                child: MovieCard(
+                  originalTitle: originalTitle,
+                  overView: overView,
+                  title: title,
+                  imgUrl: imgUrl,
+                  genres: [],
+                  height: 318,
+                ),
+              ),
               const SizedBox(
                 height: 32,
               ),
@@ -35,7 +53,7 @@ class MovieDetailsPage extends StatelessWidget {
                           .textTheme
                           .headline1!
                           .copyWith(color: ThemeColors.green1, fontSize: 24),
-                      text: '7.3 ',
+                      text: '7.2',
                       children: [
                     TextSpan(
                         text: '/ 10',
@@ -45,7 +63,7 @@ class MovieDetailsPage extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                'CAPITÃ MARVEL',
+                title,
                 style: Theme.of(context).textTheme.subtitle1!.copyWith(
                       color: ThemeColors.gray1,
                     ),
@@ -59,7 +77,7 @@ class MovieDetailsPage extends StatelessWidget {
                     text: 'Título original : ',
                     children: [
                       TextSpan(
-                          text: 'Captain Marvel',
+                          text: originalTitle,
                           style: Theme.of(context).textTheme.headline4),
                     ]),
               ),
@@ -73,9 +91,20 @@ class MovieDetailsPage extends StatelessWidget {
                     boxType: CustomBoxType.description,
                     child: RichText(
                         text: TextSpan(
-                            style: Theme.of(context).textTheme.headline1,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline5!
+                                .copyWith(fontSize: 12),
                             text: 'Ano : ',
-                            children: const [TextSpan(text: '2019')])),
+                            children: [
+                          TextSpan(
+                            text: '2019',
+                            style:
+                                Theme.of(context).textTheme.subtitle1!.copyWith(
+                                      color: ThemeColors.gray1,
+                                    ),
+                          )
+                        ])),
                   ),
                   const SizedBox(
                     width: 12,
@@ -84,9 +113,20 @@ class MovieDetailsPage extends StatelessWidget {
                     boxType: CustomBoxType.description,
                     child: RichText(
                         text: TextSpan(
-                            style: Theme.of(context).textTheme.headline1,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline5!
+                                .copyWith(fontSize: 12),
                             text: 'Duração : ',
-                            children: const [TextSpan(text: '1h 20 min')])),
+                            children: [
+                          TextSpan(
+                            text: '1h 20 min',
+                            style:
+                                Theme.of(context).textTheme.subtitle1!.copyWith(
+                                      color: ThemeColors.gray1,
+                                    ),
+                          )
+                        ])),
                   ),
                 ],
               ),
@@ -146,9 +186,7 @@ class MovieDetailsPage extends StatelessWidget {
                   const SizedBox(
                     height: 8,
                   ),
-                  Text(
-                      'Aventura sobre Carol Danvers, uma agente da CIA que tem contato com uma raça alienígena e ganha poderes sobre-humanos. Entre os seus poderes estão uma força fora do comum e a habilidade de voar',
-                      style: Theme.of(context).textTheme.bodyText1),
+                  Text(overView, style: Theme.of(context).textTheme.bodyText1),
                   const SizedBox(
                     height: 40,
                   ),
@@ -157,10 +195,21 @@ class MovieDetailsPage extends StatelessWidget {
                       boxType: CustomBoxType.description,
                       child: RichText(
                           text: TextSpan(
-                              style: Theme.of(context).textTheme.headline1,
-                              text: 'Orçamento :',
-                              children: const [
-                            TextSpan(text: '152,000,000')
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline5!
+                                  .copyWith(fontSize: 12),
+                              text: 'ORÇAMENTO:',
+                              children: [
+                            TextSpan(
+                              text: ' 152,000,000',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .subtitle1!
+                                  .copyWith(
+                                    color: ThemeColors.gray1,
+                                  ),
+                            )
                           ]))),
                   const SizedBox(
                     height: 4,
@@ -170,10 +219,21 @@ class MovieDetailsPage extends StatelessWidget {
                       boxType: CustomBoxType.description,
                       child: RichText(
                           text: TextSpan(
-                              style: Theme.of(context).textTheme.headline1,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headline5!
+                                  .copyWith(fontSize: 12),
                               text: 'PRODUTORAS :',
-                              children: const [
-                            TextSpan(text: 'Marvel studios')
+                              children: [
+                            TextSpan(
+                              text: ' Marvel studios',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .subtitle1!
+                                  .copyWith(
+                                    color: ThemeColors.gray1,
+                                  ),
+                            )
                           ]))),
                   const SizedBox(
                     height: 40,

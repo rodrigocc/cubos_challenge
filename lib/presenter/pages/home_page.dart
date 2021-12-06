@@ -1,12 +1,12 @@
 import 'package:challenge_cubos/data/fetch_image.dart';
 import 'package:challenge_cubos/data/fetch_movie_usecase.dart';
 import 'package:challenge_cubos/data/models/movie_list.dart';
-import 'package:challenge_cubos/domain/usecases/fetch_image.dart';
 import 'package:challenge_cubos/presenter/components/movie.card.dart';
 import 'package:challenge_cubos/presenter/components/movie_tab_bar.dart';
 import 'package:challenge_cubos/presenter/components/search_movie_bar.dart';
 import 'package:challenge_cubos/presenter/controller/home_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
@@ -22,7 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
     FetchMovieUseCase(),
     FetchPosterPath(),
   );
-  List<String> movieGender = ['Ação', 'Aventura', 'Fantasia', 'Comédia'];
+
   @override
   void initState() {
     super.initState();
@@ -42,33 +42,59 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Text('Filmes', style: Theme.of(context).textTheme.headline1),
             const SearchMovieBar(),
-            Wrap(
-              spacing: 12,
-              children: List.generate(movieGender.length,
-                  (index) => MovieTabBar(movieGender: movieGender[index])),
-            ),
+            Observer(builder: (_) {
+              return Wrap(
+                spacing: 12,
+                children: List.generate(
+                  controller.movieGenrerList.length,
+                  (index) => MovieTabBar(
+                      onTap: () {
+                        controller.setSelectedCardStatus(index);
+                        controller.changeGenrerTab(
+                            controller.movieGenrerList[index].genrerName);
+                        setState(() {});
+                      },
+                      movieGenrer: controller.movieGenrerList[index]),
+                ),
+              );
+            }),
             const SizedBox(
               height: 16,
             ),
-            FutureBuilder<List<MovieResults>>(
-                future: controller.fetchMovieByGenrer(28),
-                builder: (context, snapshot) {
-                  if (!snapshot.hasData) return CircularProgressIndicator();
-                  return Expanded(
-                    child: ListView.separated(
-                        itemBuilder: (context, index) {
-                          return MovieCard(
-                              title: snapshot.data![index].title!,
-                              genres: [],
-                              imgUrl: controller.fetchImageCard(
-                                  snapshot.data![index].posterPath!));
-                        },
-                        separatorBuilder: (context, index) {
-                          return const Divider();
-                        },
-                        itemCount: snapshot.data!.length),
-                  );
-                })
+            Observer(builder: (_) {
+              return FutureBuilder<List<MovieResults>>(
+                  future: controller.fetchMovieByGenrer(controller.genrerId),
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) {
+                      return const Expanded(
+                        child: Align(
+                          child: CircularProgressIndicator(),
+                          alignment: Alignment.center,
+                        ),
+                      );
+                    }
+
+                    return Expanded(
+                      child: ListView.separated(
+                          itemBuilder: (context, index) {
+                            return MovieCard(
+                                originalTitle:
+                                    snapshot.data![index].originalTitle!,
+                                title: snapshot.data![index].title!,
+                                genres: [],
+                                overView: snapshot.data![index].overview!,
+                                imgUrl: controller.fetchImageCard(
+                                    snapshot.data![index].posterPath!));
+                          },
+                          separatorBuilder: (context, index) {
+                            return const Divider(
+                              color: Colors.transparent,
+                            );
+                          },
+                          itemCount: snapshot.data!.length),
+                    );
+                  });
+            })
           ],
         ),
       ),
