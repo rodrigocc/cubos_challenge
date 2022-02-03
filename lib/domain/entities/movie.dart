@@ -13,17 +13,17 @@ class Movie {
   final List<String> producers;
   final String budget;
 
-  Movie(
+  const Movie(
       this.title,
       this.originalTitle,
       this.imgUrl,
       this.description,
       this.year,
       this.duration,
+      this.avaliation,
       this.genrer,
       this.directors,
       this.cast,
       this.producers,
-      this.budget,
-      this.avaliation);
+      this.budget);
 }
