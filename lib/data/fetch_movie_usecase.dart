@@ -3,7 +3,7 @@ import 'package:challenge_cubos/domain/entities/movie.dart';
 import 'package:challenge_cubos/domain/usecases/fetch_movie_usecase.dart';
 import 'package:challenge_cubos/infra/http_service_interface.dart';
 
-class FetchMovieUseCase implements FetchMovie {
+class FetchMovieUseCase implements IFetchMovieUseCase {
   final IHttpService client;
 
   const FetchMovieUseCase({required this.client});

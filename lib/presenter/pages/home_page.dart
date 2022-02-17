@@ -2,6 +2,7 @@ import 'package:challenge_cubos/data/fetch_image.dart';
 import 'package:challenge_cubos/data/fetch_movie_usecase.dart';
 import 'package:challenge_cubos/data/models/movie_list.dart';
 import 'package:challenge_cubos/infra/dio_client.dart';
+import 'package:challenge_cubos/injection_container.dart';
 import 'package:challenge_cubos/presenter/components/movie.card.dart';
 import 'package:challenge_cubos/presenter/components/movie_tab_bar.dart';
 import 'package:challenge_cubos/presenter/components/search_movie_bar.dart';
@@ -19,10 +20,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final controller = HomeController(
-    FetchMovieUseCase(client: DioClient()),
-    FetchPosterPath(),
-  );
+  final controller = getIt<HomeController>();
 
   @override
   void initState() {

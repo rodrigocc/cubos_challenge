@@ -11,7 +11,7 @@ abstract class _HomeControllerBase with Store {
   final FetchMovieUseCase movieUseCase;
   final FetchPosterPath imageUseCase;
 
-   _HomeControllerBase(this.movieUseCase, this.imageUseCase);
+  _HomeControllerBase({required this.movieUseCase, required this.imageUseCase});
 
   @observable
   int genrerId = 28;
