@@ -27,27 +27,3 @@ class FetchMovieUseCase implements IFetchMovieUseCase {
     throw UnimplementedError();
   }
 }
-
-
-
-// class HttpRequests {
-//   Future<List<Pokemon>> fetchPokemonData() async {
-//     final response = await http.get(Uri.parse(
-//         'https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json'));
-
-//     if (response.statusCode == 200) {
-//       List pokemon;
-//       var json = jsonDecode(response.body);
-//       pokemon = json['pokemon'];
-//       final rawPokemon = List.from((pokemon));
-
-//       Pokemon mapRawPokemon(dynamic rawPokemon) {
-//         return Pokemon.fromJson(pokemon);
-//       }
-
-//       return rawPokemon.map(mapRawPokemon).toList();
-//     } else {
-//       throw Exception('Failed to load pokemon data');
-//     }
-//   }
-// }
