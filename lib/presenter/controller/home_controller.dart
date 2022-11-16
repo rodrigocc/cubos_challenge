@@ -46,9 +46,9 @@ abstract class _HomeControllerBase with Store {
 
   @action
   void setSelectedCardStatus(int index) {
-    movieGenrerList.forEach((element) {
+    for (var element in movieGenrerList) {
       element.setSelectedStatus(false);
-    });
+    }
     movieGenrerList[index].setSelectedStatus(true);
   }
 

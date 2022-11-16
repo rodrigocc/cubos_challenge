@@ -11,7 +11,7 @@ class DioClient implements IHttpService {
   final Dio dio;
   DioClient()
       : dio = Dio(BaseOptions(
-            headers: {'Authorization': "Bearer " + acessToken},
+            headers: {'Authorization': "Bearer $acessToken"},
             baseUrl: baseUrl));
 
   @override

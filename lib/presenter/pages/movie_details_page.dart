@@ -40,7 +40,7 @@ class MovieDetailsPage extends StatelessWidget {
                   overView: overView,
                   title: title,
                   imgUrl: imgUrl,
-                  genres: [],
+                  genres: const [],
                   height: 318,
                 ),
               ),

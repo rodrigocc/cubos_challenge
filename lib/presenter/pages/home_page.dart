@@ -65,8 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     if (!snapshot.hasData) {
                       return const Expanded(
                         child: Align(
-                          child: CircularProgressIndicator(),
                           alignment: Alignment.center,
+                          child: CircularProgressIndicator(),
                         ),
                       );
                     }
@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 originalTitle:
                                     snapshot.data![index].originalTitle!,
                                 title: snapshot.data![index].title!,
-                                genres: [],
+                                genres: const [],
                                 overView: snapshot.data![index].overview!,
                                 imgUrl: controller.fetchImageCard(
                                     snapshot.data![index].posterPath!));
