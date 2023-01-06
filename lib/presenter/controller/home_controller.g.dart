@@ -29,23 +29,23 @@ mixin _$HomeController on _HomeControllerBase, Store {
 
   @override
   void changeGenrerTab(String genrerName) {
-    final _$actionInfo = _$_HomeControllerBaseActionController.startAction(
+    final $actionInfo = _$_HomeControllerBaseActionController.startAction(
         name: '_HomeControllerBase.changeGenrerTab');
     try {
       return super.changeGenrerTab(genrerName);
     } finally {
-      _$_HomeControllerBaseActionController.endAction(_$actionInfo);
+      _$_HomeControllerBaseActionController.endAction($actionInfo);
     }
   }
 
   @override
   void setSelectedCardStatus(int index) {
-    final _$actionInfo = _$_HomeControllerBaseActionController.startAction(
+    final $actionInfo = _$_HomeControllerBaseActionController.startAction(
         name: '_HomeControllerBase.setSelectedCardStatus');
     try {
       return super.setSelectedCardStatus(index);
     } finally {
-      _$_HomeControllerBaseActionController.endAction(_$actionInfo);
+      _$_HomeControllerBaseActionController.endAction($actionInfo);
     }
   }
 

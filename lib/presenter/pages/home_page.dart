@@ -40,8 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
             Text('Filmes', style: Theme.of(context).textTheme.headline1),
             const SearchMovieBar(),
             Observer(builder: (_) {
-              return Wrap(
-                spacing: 12,
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: List.generate(
                   controller.movieGenrerList.length,
                   (index) => MovieTabBar(

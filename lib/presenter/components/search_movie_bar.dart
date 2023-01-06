@@ -28,7 +28,7 @@ class _SearchMovieBarState extends State<SearchMovieBar> {
             width: 16,
           ),
           SizedBox(
-            width: 280,
+            width: 250,
             height: 40,
             child: TextField(
                 decoration: InputDecoration(
