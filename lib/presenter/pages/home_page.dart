@@ -38,7 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Filmes', style: Theme.of(context).textTheme.headline1),
-            const SearchMovieBar(),
+            SearchMovieBar(
+              homeController: controller,
+            ),
             Observer(builder: (_) {
               return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

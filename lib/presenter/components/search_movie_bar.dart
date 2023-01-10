@@ -1,8 +1,11 @@
+import 'package:challenge_cubos/presenter/controller/home_controller.dart';
 import 'package:challenge_cubos/themes/colors.dart';
 import 'package:flutter/material.dart';
 
 class SearchMovieBar extends StatefulWidget {
-  const SearchMovieBar({Key? key}) : super(key: key);
+  final HomeController homeController;
+  const SearchMovieBar({Key? key, required this.homeController})
+      : super(key: key);
 
   @override
   _SearchMovieBarState createState() => _SearchMovieBarState();
@@ -31,6 +34,8 @@ class _SearchMovieBarState extends State<SearchMovieBar> {
             width: 250,
             height: 40,
             child: TextField(
+                onChanged: widget.homeController.onChanged,
+                style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                     hintText: 'Pesquise filmes',
                     hintStyle: Theme.of(context).textTheme.headline2)),

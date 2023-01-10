@@ -14,6 +14,11 @@ abstract class _HomeControllerBase with Store {
   _HomeControllerBase({required this.movieUseCase, required this.imageUseCase});
 
   @observable
+  List<MovieResults>? movies;
+
+  MovieList? _cachedMovies;
+
+  @observable
   int genrerId = 28;
 
   ObservableList<TabModel> movieGenrerList = [
@@ -22,6 +27,16 @@ abstract class _HomeControllerBase with Store {
     TabModel(false, 'Fantasia'),
     TabModel(false, 'Comédia')
   ].asObservable();
+
+  @action
+  onChanged(String value) {
+    List<MovieResults> list = _cachedMovies!.results!
+        .where((element) =>
+            element.toString().toLowerCase().contains(value.toLowerCase()))
+        .toList();
+
+        movies
+  }
 
   @action
   void changeGenrerTab(String genrerName) {

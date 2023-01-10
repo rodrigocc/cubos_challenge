@@ -1,3 +1,6 @@
+import 'package:flutter/foundation.dart';
+
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class MovieList {
   int? page;
   List<MovieResults>? results;
@@ -27,6 +30,43 @@ class MovieList {
     data['total_pages'] = totalPages;
     data['total_results'] = totalResults;
     return data;
+  }
+
+  MovieList copyWith({
+    int? page,
+    List<MovieResults>? results,
+    int? totalPages,
+    int? totalResults,
+  }) {
+    return MovieList(
+      page: page ?? this.page,
+      results: results ?? this.results,
+      totalPages: totalPages ?? this.totalPages,
+      totalResults: totalResults ?? this.totalResults,
+    );
+  }
+
+  @override
+  bool operator ==(covariant MovieList other) {
+    if (identical(this, other)) return true;
+
+    return other.page == page &&
+        listEquals(other.results, results) &&
+        other.totalPages == totalPages &&
+        other.totalResults == totalResults;
+  }
+
+  @override
+  int get hashCode {
+    return page.hashCode ^
+        results.hashCode ^
+        totalPages.hashCode ^
+        totalResults.hashCode;
+  }
+
+  @override
+  String toString() {
+    return 'MovieList(page: $page, results: $results, totalPages: $totalPages, totalResults: $totalResults)';
   }
 }
 
