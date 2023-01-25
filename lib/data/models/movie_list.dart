@@ -137,4 +137,77 @@ class MovieResults {
     data['vote_count'] = voteCount;
     return data;
   }
+
+  MovieResults copyWith({
+    bool? adult,
+    String? backdropPath,
+    List<int>? genreIds,
+    int? id,
+    String? originalLanguage,
+    String? originalTitle,
+    String? overview,
+    String? posterPath,
+    String? releaseDate,
+    String? title,
+    bool? video,
+    int? voteAverage,
+    int? voteCount,
+  }) {
+    return MovieResults(
+      adult: adult ?? this.adult,
+      backdropPath: backdropPath ?? this.backdropPath,
+      genreIds: genreIds ?? this.genreIds,
+      id: id ?? this.id,
+      originalLanguage: originalLanguage ?? this.originalLanguage,
+      originalTitle: originalTitle ?? this.originalTitle,
+      overview: overview ?? this.overview,
+      posterPath: posterPath ?? this.posterPath,
+      releaseDate: releaseDate ?? this.releaseDate,
+      title: title ?? this.title,
+      video: video ?? this.video,
+      voteAverage: voteAverage ?? this.voteAverage,
+      voteCount: voteCount ?? this.voteCount,
+    );
+  }
+
+  @override
+  String toString() {
+    return 'MovieResults(adult: $adult, backdropPath: $backdropPath, genreIds: $genreIds, id: $id, originalLanguage: $originalLanguage, originalTitle: $originalTitle, overview: $overview, posterPath: $posterPath, releaseDate: $releaseDate, title: $title, video: $video, voteAverage: $voteAverage, voteCount: $voteCount)';
+  }
+
+  @override
+  bool operator ==(covariant MovieResults other) {
+    if (identical(this, other)) return true;
+
+    return other.adult == adult &&
+        other.backdropPath == backdropPath &&
+        listEquals(other.genreIds, genreIds) &&
+        other.id == id &&
+        other.originalLanguage == originalLanguage &&
+        other.originalTitle == originalTitle &&
+        other.overview == overview &&
+        other.posterPath == posterPath &&
+        other.releaseDate == releaseDate &&
+        other.title == title &&
+        other.video == video &&
+        other.voteAverage == voteAverage &&
+        other.voteCount == voteCount;
+  }
+
+  @override
+  int get hashCode {
+    return adult.hashCode ^
+        backdropPath.hashCode ^
+        genreIds.hashCode ^
+        id.hashCode ^
+        originalLanguage.hashCode ^
+        originalTitle.hashCode ^
+        overview.hashCode ^
+        posterPath.hashCode ^
+        releaseDate.hashCode ^
+        title.hashCode ^
+        video.hashCode ^
+        voteAverage.hashCode ^
+        voteCount.hashCode;
+  }
 }

@@ -14,9 +14,7 @@ abstract class _HomeControllerBase with Store {
   _HomeControllerBase({required this.movieUseCase, required this.imageUseCase});
 
   @observable
-  List<MovieResults>? movies;
-
-  MovieList? _cachedMovies;
+  List<MovieResults> movies = [];
 
   @observable
   int genrerId = 28;
@@ -27,16 +25,6 @@ abstract class _HomeControllerBase with Store {
     TabModel(false, 'Fantasia'),
     TabModel(false, 'Comédia')
   ].asObservable();
-
-  @action
-  onChanged(String value) {
-    List<MovieResults> list = _cachedMovies!.results!
-        .where((element) =>
-            element.toString().toLowerCase().contains(value.toLowerCase()))
-        .toList();
-
-        movies
-  }
 
   @action
   void changeGenrerTab(String genrerName) {
@@ -69,6 +57,25 @@ abstract class _HomeControllerBase with Store {
 
   Future<List<MovieResults>> fetchMovieByGenrer(int genrerId) {
     return movieUseCase.fetchMovieByGenrer(genrerId);
+  }
+
+  @action
+  Future<void> fetchMovies(int genrerId) async {
+    final List<MovieResults> movies = await fetchMovieByGenrer(genrerId);
+
+    this.movies = movies;
+  }
+
+  @action
+  Future<void> searchMovies(String value, int genrerId) async {
+    await fetchMovies(genrerId);
+    final List<MovieResults> movies = this
+        .movies
+        .where((element) =>
+            element.title!.toLowerCase().contains(value.toLowerCase()))
+        .toList();
+
+    this.movies = movies;
   }
 
   String fetchImageCard(String posterPath) {
