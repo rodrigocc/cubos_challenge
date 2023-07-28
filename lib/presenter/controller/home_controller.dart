@@ -1,5 +1,6 @@
 import 'package:challenge_cubos/data/fetch_image.dart';
 import 'package:challenge_cubos/data/fetch_movie_usecase.dart';
+import 'package:challenge_cubos/data/models/genrer_list.dart';
 import 'package:challenge_cubos/data/models/movie_list.dart';
 import 'package:challenge_cubos/presenter/controller/tab_model.dart';
 import 'package:mobx/mobx.dart';
@@ -15,6 +16,12 @@ abstract class _HomeControllerBase with Store {
 
   @observable
   List<MovieResults> movies = [];
+
+  @observable
+  List<Genres> genrerList = [];
+
+  @observable
+  bool isLoadingData = false;
 
   @observable
   int genrerId = 28;
@@ -64,6 +71,11 @@ abstract class _HomeControllerBase with Store {
     final List<MovieResults> movies = await fetchMovieByGenrer(genrerId);
 
     this.movies = movies;
+  }
+
+  @action
+  Future<void> fetchGenrerList() async {
+    genrerList = await movieUseCase.fetchGenrerList();
   }
 
   @action

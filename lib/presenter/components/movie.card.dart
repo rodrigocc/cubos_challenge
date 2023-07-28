@@ -1,3 +1,4 @@
+import 'package:challenge_cubos/data/models/genrer_list.dart';
 import 'package:challenge_cubos/presenter/pages/movie_details_page.dart';
 import 'package:flutter/material.dart';
 
@@ -5,7 +6,7 @@ class MovieCard extends StatelessWidget {
   final double? height;
   final String imgUrl;
   final String title;
-  final List<String> genres;
+  final List<Genres> genres;
   final String overView;
   final String originalTitle;
 

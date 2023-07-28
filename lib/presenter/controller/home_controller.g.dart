@@ -25,6 +25,22 @@ mixin _$HomeController on _HomeControllerBase, Store {
     });
   }
 
+  late final _$isLoadingDataAtom =
+      Atom(name: '_HomeControllerBase.isLoadingData', context: context);
+
+  @override
+  bool get isLoadingData {
+    _$isLoadingDataAtom.reportRead();
+    return super.isLoadingData;
+  }
+
+  @override
+  set isLoadingData(bool value) {
+    _$isLoadingDataAtom.reportWrite(value, super.isLoadingData, () {
+      super.isLoadingData = value;
+    });
+  }
+
   late final _$genrerIdAtom =
       Atom(name: '_HomeControllerBase.genrerId', context: context);
 
@@ -87,6 +103,7 @@ mixin _$HomeController on _HomeControllerBase, Store {
   String toString() {
     return '''
 movies: ${movies},
+isLoadingData: ${isLoadingData},
 genrerId: ${genrerId}
     ''';
   }

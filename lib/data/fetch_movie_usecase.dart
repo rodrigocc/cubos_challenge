@@ -1,3 +1,4 @@
+import 'package:challenge_cubos/data/models/genrer_list.dart';
 import 'package:challenge_cubos/data/models/movie_list.dart';
 import 'package:challenge_cubos/domain/entities/movie.dart';
 import 'package:challenge_cubos/domain/usecases/fetch_movie_usecase.dart';
@@ -15,6 +16,12 @@ class FetchMovieUseCase implements IFetchMovieUseCase {
 
     var movie = MovieList.fromJson(response);
     return movie.results!;
+  }
+
+  Future<List<Genres>> fetchGenrerList() async {
+    final response = await client.get('/genre/movie/list?language=pt-BR');
+    var genrerList = GenrerList.fromJson(response);
+    return genrerList.genres!;
   }
 
   @override
